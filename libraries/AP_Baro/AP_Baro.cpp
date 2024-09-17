@@ -1,4 +1,4 @@
-/*
+    /*
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
@@ -56,6 +56,10 @@
 #include <AP_Logger/AP_Logger.h>
 #include <AP_GPS/AP_GPS.h>
 #include <AP_Vehicle/AP_Vehicle.h>
+
+#ifdef HAL_BOARD_SITL
+#define HAL_BARO_ALLOW_INIT_NO_BARO
+#endif
 
 #define INTERNAL_TEMPERATURE_CLAMP 35.0f
 
@@ -365,7 +369,7 @@ void AP_Baro::calibrate(bool save)
     if (num_calibrated) {
         return;
     }
-    AP_BoardConfig::config_error("Baro: all sensors uncalibrated");
+    //AP_BoardConfig::config_error("Baro: all sensors uncalibrated");
 }
 
 /*
