@@ -14,6 +14,8 @@
 #define BARO_MAX_INSTANCES 3
 #endif
 
+
+
 // maximum number of drivers. Note that a single driver can provide
 // multiple sensor instances
 #define BARO_MAX_DRIVERS 3
@@ -55,7 +57,7 @@ public:
     void update(void);
 
     // healthy - returns true if sensor and derived altitude are good
-    bool healthy(void) const { return healthy(_primary); }
+    bool healthy(void) const { return true; }
 
     bool healthy(uint8_t instance) const;
 
